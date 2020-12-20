@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "grpwk20.h"
-#define DATA_LEN 100000
 
 int tonum(char c) {
   if(c == 'A')
