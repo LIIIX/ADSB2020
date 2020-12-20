@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "grpwk20.h"
+//4回繰り返す場合にコスト80、1%くらいの確率でerror、error発生しない場合hd=0
+//5回繰り返す場合にコスト100、hd＝0
+#define TIMES 4
 
 unsigned char tochar(unsigned char c1, unsigned char c2){
   unsigned char res;
@@ -63,8 +66,8 @@ int enc(){
       base1 = tochar(c1, c2); num1 = tonum(base1);
       base2 = tochar(c3, c4); num2 = tonum(base2);
       for(res = 0; (res==num1) || (res==num2); res++);
-      for(int i=0; i<4; i++) fputc(base1, efp);
-      for(int i=0; i<4; i++) fputc(numtochar(res), efp);
+      for(int i=0; i<TIMES; i++) fputc(base1, efp);
+      for(int i=0; i<TIMES; i++) fputc(numtochar(res), efp);
       c1 = c3; c2 = c4;
     } else {
       base1 = tochar(c1, c2);
